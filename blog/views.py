@@ -5,7 +5,6 @@ class PostList(ListView):
     model = Post
     template_name = 'blog/index.html'
     ordering = '-pk'
-
 """
 def index(request):
     posts = Post.objects.all().order_by('-pk')

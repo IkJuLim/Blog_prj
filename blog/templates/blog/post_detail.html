@@ -21,6 +21,7 @@
 
   <!-- Custom styles for this template -->
   <link href="{% static '/blog/css/clean-blog.min.css' %}" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f2d682192f.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -54,7 +55,11 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{ post.head_image.url }}')">
+  {% if post.head_image %}
+  <header class="masthead" style="background-image: url('{{ post.head_image.url }}')>
+  {% else %}
+  <header class="masthead">
+  {% endif %}
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -77,6 +82,18 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           {{ post.content }}
+          <hr>
+          <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button">
+            Download:
+            {% if post.get_file_ext =='csv' %}
+              <i class="fas fa=file-csv"></i>
+            {% if post.get_file_ext =='xlsx' or if post.get_file_ext =='xls' %}
+              <i class="fas fa=file-excel"></i>
+            {% if post.get_file_ext =='docx' or if post.get_file_ext =='doc' %}
+              <i class="fas fa=file-wold"></i>
+            {% else %}
+              <i class="fas fa=file"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -122,11 +139,11 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/blog/vendor/jquery/jquery.min.js"></script>
-  <script src="/blog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static '/blog/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static '/blog/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="/blog/js/clean-blog.min.js"></script>
+  <script src="{% static '/blog/js/clean-blog.min.js' %}"></script>
 
 </body>
 

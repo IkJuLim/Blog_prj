@@ -42,11 +42,25 @@
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="post.html">Sample Post</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Blog
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <a type="submit" class="btn btn-outline-light" role="button">Search</a>
+            </form>
           </li>
         </ul>
       </div>
@@ -136,11 +150,11 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/blog/vendor/jquery/jquery.min.js"></script>
-  <script src="/blog/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static '/blog/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static '/blog/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="/blog/js/clean-blog.min.js"></script>
+  <script src="{% static '/blog/js/clean-blog.min.js' %}"></script>
 
 </body>
 

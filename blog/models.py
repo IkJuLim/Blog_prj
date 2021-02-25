@@ -1,8 +1,9 @@
 from django.db import models
+import os
 
 class Post(models.Model):
     title = models.CharField(max_length=30)
-    sub_title = models.CharField(max_length=300, blank=True)
+    sub_title = models.CharField(max_length=200, blank=True)
     content = models.TextField()
 
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d/', blank=True)
@@ -15,3 +16,9 @@ class Post(models.Model):
 
     def get_absulute_url(self):
         return f'/blog/{self.pk}'
+
+    def get_file_name(self):
+        return os.path.basename(self.file_upload.name)
+
+    def get_file_ext(self):
+        return self.get_file_name().split('.')[-1]
