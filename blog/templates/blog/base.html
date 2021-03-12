@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta name="keywords" content="htmlcss bootstrap menu, navbar, hover nav menu CSS examples" />
+  <meta name="description" content="Bootstrap navbar hover examples for any type of project, Bootstrap 4" />
 
   <title>{% block head_title %}Blog{% endblock %}</title>
 
@@ -35,7 +37,11 @@
 
   <!-- Custom scripts for this template -->
   <script src="{% static '/blog/js/clean-blog.min.js' %}"></script>
-
+  <style>
+    @media all and (min-width: 992px) {
+      .nav-item:hover .dropdown-menu{ display: block; }
+    }
+  </style>
 </body>
 
 </html>

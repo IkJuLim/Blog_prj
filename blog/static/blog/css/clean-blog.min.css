@@ -208,6 +208,7 @@ header.masthead .post-heading h1 {
     font-size: 35px
 }
 header.masthead .post-heading .meta,
+header.masthead .post-heading .category,
 header.masthead .post-heading .subheading {
     line-height: 1.1;
     display: block
@@ -218,13 +219,14 @@ header.masthead .post-heading .subheading {
     margin: 10px 0 30px;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
-header.masthead .post-heading .meta {
+header.masthead .post-heading .meta{
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
     font-family: Lora, 'Times New Roman', serif
 }
-header.masthead .post-heading .meta a {
+header.masthead .post-heading .meta a,
+header.masthead .post-heading .category a {
     color: #fff
 }
 @media only screen and(min-width:768px) {
@@ -251,6 +253,13 @@ header.masthead .post-heading .meta a {
 .post-preview > a > .post-subtitle {
     font-weight: 300;
     margin: 0 0 10px
+}
+.post-preview > a > .post-category {
+  font-weight: normal;
+  font-size: 18px;
+  font-style: normal;
+  margin-top: 0;
+  color: #868e96;
 }
 .post-preview > .post-meta {
     font-size: 18px;
@@ -336,7 +345,7 @@ footer .copyright {
 .btn {
     font-size: 14px;
     font-weight: 800;
-    padding: 15px 25px;
+    padding: 5px 20px;
     letter-spacing: 1px;
     text-transform: none;
     border-radius: 0;

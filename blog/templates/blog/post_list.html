@@ -2,7 +2,7 @@
 
 {% block main_area %}
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+  <header class="masthead" <!--style="background-image: url('img/home-bg.jpg')"-->>
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -30,6 +30,9 @@
               {{ p.sub_title }}
             </h3>
           </a>
+          {% if p.category %}
+          <h6 class="category"><a href="{{p.category.get_absolute_url}}"> {{ p.category }} </a></h6>
+          {% endif %}
           <p class="post-meta">Posted by
             <a href="#">IkJu Lim</a>
             on {{ p.created_at }}</p>
