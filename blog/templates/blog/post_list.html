@@ -33,9 +33,11 @@
           {% if p.category %}
           <h6 class="category"><a href="{{p.category.get_absolute_url}}"> {{ p.category }} </a></h6>
           {% endif %}
-          <p class="post-meta">Posted by
-            <a href="#">IkJu Lim</a>
-            on {{ p.created_at }}</p>
+          {% if p.author %}
+          <p class="post-meta">Posted by <a href="#">{{p.author}}</a> on {{ p.created_at }}</p>
+          {% else %}
+          <p class="post-meta">Posted on {{ p.created_at }}</p>
+          {% endif %}
         </div>
         <hr>
         {% endfor %}

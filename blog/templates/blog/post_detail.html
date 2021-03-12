@@ -19,9 +19,11 @@
               {% else %}
               <a href="/blog/">blog</a>&nbsp;&gt;&nbsp;<a href="/blog/category/no_category/">미분류</a></span>
               {% endif %}
-            <span class="meta">Posted by
-              <a href="#">IkJu Lim</a>
-              on {{ post.created_at}}</span>
+            {% if post.author %}
+            <span class="meta">Posted by <a href="#">{{post.author}}</a> on {{ post.created_at }}</span>
+            {% else %}
+            <span class="meta">Posted on {{ post.created_at }}</span>
+            {% endif %}
           </div>
         </div>
       </div>
