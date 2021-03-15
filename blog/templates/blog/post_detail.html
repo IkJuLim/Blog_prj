@@ -37,12 +37,12 @@
   <article>
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="col-lg-10 col-md-8 mx-auto">
           {% if user.is_authenticated and user == post.author %}
           <a class="btn btn-info btn-sm float-right" href="/blog/update_post/{{ post.pk }}" role="button"><i class="fas fa-pen"></i>&nbsp;&nbsp;Post Update</a>
           {% endif %}
           <!--content-->
-          {{ post.content }}
+          {{ post.content | safe }}
           <!--download button-->
           {% if post.file_upload %}
           <hr>
