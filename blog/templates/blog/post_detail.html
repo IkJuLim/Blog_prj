@@ -9,16 +9,19 @@
   {% endif %}
     <div class="overlay"></div>
     <div class="container">
-      <div class="row">
+      <div class="row">s
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
+            <!--title-->
             <h1>{{ post.title }}</h1>
+            <!--category-->
             <span class="category">
               {% if post.category %}
               <a href="/blog/">blog</a>&nbsp;&gt;&nbsp;<a href="{{post.category.get_absolute_url}}">{{ post.category }} ({{ post.category.post_set.count }})</a></span>
               {% else %}
               <a href="/blog/">blog</a>&nbsp;&gt;&nbsp;<a href="/blog/category/no_category/">미분류</a></span>
               {% endif %}
+            <!--author and date-->
             {% if post.author %}
             <span class="meta">Posted by <a href="#">{{post.author}}</a> on {{ post.created_at }}</span>
             {% else %}
@@ -35,7 +38,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          {% if user.is_authenticated and user == post.author %}
+          <a class="btn btn-info btn-sm float-right" href="/blog/update_post/{{ post.pk }}" role="button"><i class="fas fa-pen"></i>&nbsp;&nbsp;Post Update</a>
+          {% endif %}
+          <!--content-->
           {{ post.content }}
+          <!--download button-->
           {% if post.file_upload %}
           <hr>
           <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button">
@@ -56,4 +64,35 @@
       </div>
     </div>
   </article>
+
+<!--
+  <div class="sc-eqIVtm chOsqy sc-bwCtUz cqfXEM col-lg-8 col-md-10 mx-auto">
+    <div class="sc-hrWEMg jwsEFz">
+      <a class="sc-RefOD iOxFgO" href=""><!--이전 포스트 URL->
+        <div class="sc-ibxdXY fPtSAO">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
+          </svg>
+        </div>
+        <div class="sc-iQKALj bEpGXB">
+          <div class="description">이전 포스트</div>
+          <h4>rtu<!--이전 포스트-></h4>
+        </div>
+      </a>
+    </div>
+    <div class="sc-hrWEMg jwsEFz">
+      <a class="sc-RefOD coIrCv" href=""><!--다음 포스트 URL->
+        <div class="sc-ibxdXY fXOBSr">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path>
+          </svg>
+        </div>
+        <div class="sc-iQKALj jmguBm">
+          <div class="description">다음 포스트</div>
+          <h4>jstry<!--다음 포스트-></h4>
+        </div>
+      </a>
+    </div>
+  </div>
+-->
 {% endblock %}
