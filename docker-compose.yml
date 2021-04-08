@@ -13,7 +13,6 @@ services:
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
-    command: gunicorn Blog_prj.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static_volume:/usr/src/app/_static
       - media_volume:/usr/src/app/_media
